@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Adds banner -->
+    <div id="banner" class="flex items-center justify-center gap-32 p-2 bg-black">
+
+        <div>
+            <h1 class="text-[#E2E1E1] text-2xl ">Sign Up and <b>GET 20% OFF</b> for your first Order </h1>
+        </div>
+
+        <div>
+            <svg onclick="closeBanner()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="3" stroke="currentColor" class="size-6 text-[#E2E1E1] cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- script for Adds banner -->
+
+    <script>
+
+        function closeBanner() {
+
+            document.getElementById("banner").style.display = "none"
+        }
+    </script>
+
+
+
+
+
+
+    <!-- navbar -->
+    <nav class="flex items-center justify-between  p-5 sticky top-0 z-10 bg-white">
+        
+        <div>
+            <h1 class="font-bold text-3xl">Nostra</h1>
+        </div>
+        <div class="flex  gap-16 mr-20">
+            <a href="index.html" class="no-underline hover:underline">Home</a>
+            <a href="newarraivals.html" class="no-underline hover:underline">New Arrival</a>
+            <a href="mostwanted.html" class="no-underline hover:underline">Most Wanted</a>
+            <a href="collections.html" class="no-underline hover:underline">Collections</a>
+            <a href="contact.html" class="no-underline hover:underline">Contact Us</a>
+        </div>
+    </nav>
+
+
+
+    <!-- Slider -->
+    <section class="relative w-full  overflow-hidden">
+
+        <!-- Images Container -->
+        <div id="slider" class="flex transition-transform duration-[2000ms]">
+
+            <!-- Image 1 -->
+            <div class="min-w-full relative p-2">
+                <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1200"
+                    class="w-full h-[550px] object-cover brightness-50 rounded-md">
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                    <h1 class="text-7xl font-bold">Level up your style with our</h1>
+                    <p class="text-xl mt-2 text-white font-bold">Summer Collections</p>
+                    <button class="mt-6 px-4 py-4 bg-gradient-to-r from-pink-500 to-red-500 
+                             text-white text-lg font-semibold rounded-full shadow-2xl 
+                              hover:scale-110 hover:from-red-500 hover:to-pink-500 
+                               transition-all duration-300">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Image 2 -->
+            <div class="min-w-full relative p-2">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200"
+                    class="w-full h-[550px] object-cover brightness-50 rounded-md">
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+
+                    <h1 class="text-7xl font-bold">Level up your style with our</h1>
+                    <p class="text-xl mt-2 text-white font-bold">Summer Collections</p>
+                    <button
+                        class="bg-white text-black px-6 py-3 mt-5 rounded hover:bg-gray-200 transition-colors duration-300">
+                        Explore
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Image 3 -->
+            <div class="min-w-full relative p-2">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200"
+                    class="w-full h-[550px] object-cover brightness-50 rounded-md">
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                    <h1 class="text-7xl font-bold">New Arrivals</h1>
+                    <button
+                        class="mt-5 px-5 py-3 rounded-full bg-white text-black 
+                               font-bold text-lg shadow-md border border-white hover:bg-gray-200 transition-colors duration-300">
+
+                        Buy Now
+
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Left Arrow -->
+        <button id="prev" class="absolute left-20 top-1/2 -translate-y-1/2 text-white text-7xl">
+            <!-- ❮ -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
+                stroke="currentColor" class="w-24 h-24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+
+        </button>
+
+        <!-- Right Arrow -->
+        <button id="next" class="absolute right-20 top-1/2 -translate-y-1/2 text-white text-7xl">
+            <!-- ❯ -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
+                stroke="currentColor" class="size-24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+
+    </section>
+
+
+    <!-- Slider Scripts -->
+    <script>
+
+        const slider = document.getElementById("slider")
+
+        const nextBtn = document.getElementById("next")
+
+        const prevBtn = document.getElementById("prev")
+
+        let index = 0
+
+        const totalSlides = 3
+
+
+        // Next Button
+        nextBtn.addEventListener("click", () => {
+
+            index++
+
+            if (index >= totalSlides) {
+                index = 0
+            }
+
+            slider.style.transform = `translateX(-${index * 100}%)`
+        })
+
+
+        // Previous Button
+        prevBtn.addEventListener("click", () => {
+
+            index--
+
+            if (index < 0) {
+                index = totalSlides - 1
+            }
+
+            slider.style.transform = `translateX(-${index * 100}%)`
+        })
+
+    </script>
+
+
+    <!-- Brand Images -->
+    <section class="brands mt-20 px-5">
+
+        <div class="mb-8">
+            <h1 class="font-bold text-2xl text-gray-800">Brands</h1>
+
+        </div>
+
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4">
+
+            <!-- Brand Card — repeat this pattern for each brand -->
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+            transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/behance.png" alt="Puma" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Puma
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/adidas.png" alt="Adidas" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Adidas
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/simple.png" alt="Simple" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Simple
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/leaves (1).png" alt="Leaves" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Leaves
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/behance (1).png" alt="Behance" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Behance
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20  rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/twitch.png" alt="Twitch" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Twitch
+                </span>
+            </div>
+
+            <div
+                class="flex flex-col items-center gap-3 p-2 bg-white border border-gray-100 rounded-2xl
+                cursor-pointer group transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-sm">
+                <div class="w-20 h-20 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center
+                  transition-transform duration-300 group-hover:scale-110 overflow-hidden">
+                    <img src="./images/leaves.png" alt="Leaves" class="w-full h-full object-contain">
+                </div>
+                <span
+                    class="text-lg font-semibold text-gray-500 text-center group-hover:text-gray-800 transition-colors duration-200">
+                    Leaves
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- customer Experience -->
+
+    <section class="flex items-center justify-between  mt-20 px-5">
+
+        <div>
+            <h2 class="text-4xl font-bold text-black-800">We Provide Best <br> Customer Experiences</h2>
+        </div>
+
+        <div>
+            <p class="text-2xl tracking-wide">|| We ensure that our customer have the best shopping experience</p>
+        </div>
+    </section>
+
+
+
+
+    <!-- original satisfaction new arrival fast and free shiping icons -->
+
+
+    <section class="flex items-center justify-between mt-20 px-5 gap-10 ">
+
+        <div class="bg-gray-200 flex flex-col gap-2 pl-2 pr-10 py-3 grow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-10">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <h3 class="font-bold">Original Products</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur <br> adipisicing elit. Porro, consequuntur.</p>
+        </div>
+
+        <div class="bg-gray-200  flex flex-col gap-2 pl-2 pr-10 py-3 grow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-10">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+            </svg>
+            <h3 class="font-bold">Satisfaction Guarantee</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur <br> adipisicing elit. Porro, consequuntur.</p>
+        </div>
+
+        <div class="bg-gray-200  flex flex-col gap-2 pl-2 pr-10 py-3 grow">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-10">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+            </svg>
+            <h3 class="font-bold">New Arrival Everyday</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur <br> adipisicing elit. Porro, consequuntur.</p>
+        </div>
+
+
+        <div class="bg-gray-200 flex flex-col gap-2 pl-2 pr-10 py-3 grow">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-10">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+            </svg>
+            <h3 class="font-bold">Fast & Free Shipping</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur <br> adipisicing elit. Porro, consequuntur.</p>
+        </div>
+
+    </section>
+
+
+
+
+    <!-- New Arrivals -->
+
+    <section class="mt-20 px-5">
+
+        <h2 class="font-bold text-3xl text-black mb-10">
+            New Arrivals
+        </h2>
+
+        <!-- Image Container -->
+        <div class="flex items-center justify-between gap-8 flex-wrap">
+
+            <!-- Card 1 -->
+            <div class="relative">
+
+                <img src="./images/yellowshirt.jpg" alt="yellowshirt"
+                    class="w-[320px] h-[300px] object-cover rounded-lg brightness-50">
+
+                <div class="absolute inset-0 flex items-center justify-center">
+
+                    <button class="bg-white text-black px-4 py-3 rounded-xl
+                       text-lg hover:bg-gray-200 transition duration-300
+                        flex items-center gap-2">
+
+                        Shop Now
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 2 -->
+            <div class="relative">
+
+                <img src="./images/graypant.jpg" alt="graypant"
+                    class="w-[320px] h-[300px] object-cover rounded-lg brightness-50">
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="bg-white text-black px-4 py-3 rounded-xl 
+                       text-lg hover:bg-gray-200 transition duration-300
+                        flex items-center gap-2">
+
+                        Shop Now
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 3 -->
+            <div class="relative">
+
+                <img src="./images/chinesecolorblue.jpg" alt="chinesecolorblue"
+                    class="w-[320px] h-[300px] object-cover rounded-lg brightness-50">
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="bg-white text-black px-4 py-3 rounded-xl 
+                       text-lg hover:bg-gray-200 transition duration-300
+                        flex items-center gap-2">
+
+                        Shop Now
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Card 4 -->
+            <div class="relative">
+
+                <img src="./images/policeshirt.jpg" alt="policeshirt"
+                    class="w-[320px] h-[300px] object-cover rounded-lg brightness-50">
+
+                <div class="absolute inset-0 flex items-center justify-center">
+
+                    <button class="bg-white text-black px-4 py-3 rounded-xl 
+                       text-lg hover:bg-gray-200 transition duration-300
+                        flex items-center gap-2">
+
+                        Shop Now
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+    <!-- Most Wanted -->
+
+    <section class="mt-10 p-5">
+
+        <h2 class="font-bold text-3xl mb-8">
+            Most Wanted
+        </h2>
+
+        <!-- Cards Container -->
+        <div class="flex items-center justify-between gap-6 flex-wrap">
+
+            <!-- Card 1 -->
+            <div class="relative bg-gray-100 rounded-lg p-4">
+
+                <!-- Sale Tag -->
+                <div class="absolute top-0 left-0 bg-[#FF0000] text-white 
+                        text-3xl px-4 py-1 rounded-lg">
+
+                    sale
+
+                </div>
+
+                <!-- Image -->
+                <img src="./images/blackhalfshirt.jpg" alt="blackshirt"
+                    class="w-[320px] h-[320px] object-cover rounded-lg">
+
+                <!-- Heart Icon -->
+                <div class="absolute bottom-5 right-5">
+
+                    <svg onclick="toggleHeart(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.8" stroke="currentColor"
+                        class="w-14 h-14 cursor-pointer hover:scale-110 transition duration-300">
+
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Card 2 -->
+            <div class="relative bg-gray-100 rounded-lg p-4">
+
+                <div class="absolute top-0 left-0 bg-[#FF0000] text-white 
+                        text-3xl px-4 py-1 rounded-lg">
+
+                    sale
+
+                </div>
+
+                <img src="./images/yellowshirt.jpg" alt="yellowshirt"
+                    class="w-[320px] h-[320px] object-cover rounded-lg">
+
+                <div class="absolute bottom-5 right-5">
+
+                    <svg onclick="toggleHeart(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.8" stroke="currentColor"
+                        class="w-14 h-14 cursor-pointer hover:scale-110 transition duration-300">
+
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Card 3 -->
+            <div class="relative bg-gray-100 rounded-lg p-4">
+
+                <div class="absolute top-0 left-0 bg-[#FF0000] text-white 
+                        text-3xl px-4 py-1 rounded-lg">
+
+                    sale
+
+                </div>
+
+                <img src="./images/lightblueshirt.jpg" alt="lightblue"
+                    class="w-[320px] h-[320px] object-cover rounded-lg">
+
+                <div class="absolute bottom-5 right-5">
+
+                    <svg onclick="toggleHeart(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.8" stroke="currentColor"
+                        class="w-14 h-14 cursor-pointer hover:scale-110 transition duration-300">
+
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Card 4 -->
+            <div class="relative bg-gray-100 rounded-lg p-4">
+
+                <div class="absolute top-0 left-0 bg-[#FF0000] text-white 
+                        text-3xl px-4 py-1 rounded-lg">
+
+                    sale
+
+                </div>
+
+                <img src="./images/goayellowshirt.jpg" alt="goashirt"
+                    class="w-[320px] h-[320px] object-cover rounded-lg">
+
+                <div class="absolute bottom-5 right-5">
+
+                    <svg onclick="toggleHeart(this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.8" stroke="currentColor"
+                        class="w-14 h-14 cursor-pointer hover:scale-110 transition duration-300">
+
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <script>
+
+            function toggleHeart(icon) {
+
+                if (icon.classList.contains("text-red-500")) {
+
+                    icon.classList.remove("text-red-500")
+                    icon.setAttribute("fill", "none")
+
+                } else {
+
+                    icon.classList.add("text-red-500")
+                    icon.setAttribute("fill", "currentColor")
+
+                }
+
+            }
+
+        </script>
+
+    </section>
+
+
+
+    <!-- Limited offers -->
+
+    <section class="mt-5 p-3">
+
+        <div class="flex items-center justify-between bg-[#1D232C] gap-5">
+
+            <div class="pl-20 py-7 ">
+                <img src="./images/gangpic.jpg" alt="">
+            </div>
+
+            <div class="  mr-10 p-5 ">
+                <h2 class="text-[#E2E1E1] text-5xl font-bold">Limited Offer</h2>
+                <h3 class="text-[#E2E1E1] text-4xl font-medium">35% OFF on this for the first 30 Customers
+                </h3>
+                <button
+                    class="bg-white text-black px-12 py-5 mt-5 rounded-2xl flex items-center gap-2 hover:scale-105 transition duration-300">Shop
+                    Now
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Join our News Letter -->
+
+
+    <section class="mt-5 p-5 ">
+
+
+        <div class="flex justify-center ">
+            <div>
+                <h2 class=" font-bold text-5xl">Join our News Letter</h2>
+            </div>
+        </div>
+
+        <p class="text-2xl mt-3 text-center">Signup for our email newspaper to get exclusive discounts, updates, and
+            more</p>
+
+        <div class="border-2 border-[#1D232C] w-[65%] h-10 mx-auto mt-5 "></div>
+
+
+
+        <button class="flex mt-3 gap-3 bg-[#1D232C] text-white px-6 py-3 rounded-lg hover:bg-[#3A4A5D] mx-auto">Subcribe
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+        </button>
+
+    </section>
+
+
+    <!-- footer -->
+
+    <footer>
+
+        <div class="bg-[#1D232C] p-10">
+            <h2 class="text-3xl font-bold text-white">Nostra</h2>
+            <p class="text-2xl text-white mt-4">The Standard chunk of Lorem ipsum used since the 1500s is reprodused
+                below for those interest</p>
+
+            <div class="flex  gap-10 mt-5 ml-1 text-4xl">
+                <div>
+                    <i class="fa-brands fa-instagram hover:animate-bounce text-"3xl"></i>
+                </div>
+
+                <div>
+                    <i class="fa-brands fa-twitter hover:animate-bounce text-3xl"></i>
+                </div>
+
+                <div>
+                    <i class="fa-brands fa-facebook hover:animate-bounce text-3xl"></i </div>
+                </div>
+
+                
+            </div>
+            <p class="text-white mt-5 text-2xl">@ 2023 Nostra.com</p>
+    </footer>
+
+</body>
+
+</html>
